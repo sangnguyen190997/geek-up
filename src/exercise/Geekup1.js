@@ -16,18 +16,34 @@ export default function Geekup1() {
     document.getElementById("home").style.display = "block";
     document.getElementById("profile").style.display = "none";
     document.getElementById("messages").style.display = "none";
+
+    let element = document.getElementsByTagName("button");
+
+    element[0].classList.add("active");
+    element[1].classList.remove("active");
+    element[2].classList.remove("active");
   };
 
   const show2 = () => {
     document.getElementById("home").style.display = "none";
     document.getElementById("profile").style.display = "block";
     document.getElementById("messages").style.display = "none";
+
+    let element = document.getElementsByTagName("button");
+    element[1].classList.add("active");
+    element[0].classList.remove("active");
+    element[2].classList.remove("active");
   };
 
   const show3 = () => {
     document.getElementById("messages").style.display = "block";
     document.getElementById("home").style.display = "none";
     document.getElementById("profile").style.display = "none";
+
+    let element = document.getElementsByTagName("button");
+    element[2].classList.add("active");
+    element[0].classList.remove("active");
+    element[1].classList.remove("active");
   };
 
   return (
@@ -42,6 +58,7 @@ export default function Geekup1() {
             name="flexRadioDefault"
             id="home-tab"
             onClick={() => displayValueRadio()}
+            defaultChecked
           />
           <label className="form-check-label" htmlFor="home-tab">
             Câu 1
@@ -86,7 +103,7 @@ export default function Geekup1() {
             role="tab"
             aria-controls="home"
             aria-selected="true"
-            onClick={() => show1()}
+            disabled
           >
             Câu 1{open == 0 ? show1() : null}
           </button>
@@ -101,7 +118,7 @@ export default function Geekup1() {
             role="tab"
             aria-controls="profile"
             aria-selected="false"
-            onClick={() => show2()}
+            disabled
           >
             Câu 2{open == 1 ? show2() : null}
           </button>
@@ -116,7 +133,7 @@ export default function Geekup1() {
             role="tab"
             aria-controls="messages"
             aria-selected="false"
-            onClick={() => show3()}
+            disabled
           >
             Câu 3{open == 2 ? show3() : null}
           </button>
